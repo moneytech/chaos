@@ -1,11 +1,33 @@
 #include "function.h"
 
-extern int yylineno;
-bool interactive_shell_function_error_absorbed = false;
-extern int yyparse();
+_Function* function_cursor = NULL;
+_Function* start_function = NULL;
+_Function* end_function = NULL;
+_Function* function_mode = NULL;
+_Function* function_parameters_mode = NULL;
+_Function* executed_function = NULL;
+_Function* main_function = NULL;
+_Function* scopeless = NULL;
+_Function* scope_override = NULL;
+_Function* decision_mode = NULL;
+_Function* decision_expression_mode = NULL;
+_Function* decision_function_mode = NULL;
 
-int reset_line_no_to = 0;
 bool decision_execution_mode = false;
+Symbol* decision_symbol_chain = NULL;
+char *decision_buffer = NULL;
+
+string_array function_names_buffer = { .arr = NULL, .capacity = 0, .size = 0 };
+
+unsigned short recursion_depth = 0;
+int reset_line_no_to = 0;
+
+jmp_buf InteractiveShellFunctionErrorAbsorber;
+int setjmp(jmp_buf InteractiveShellFunctionErrorAbsorber);
+bool interactive_shell_function_error_absorbed = false;
+
+extern int yylineno;
+extern int yyparse();
 
 void startFunction(char *name, enum Type type) {
     if (is_interactive) {
@@ -419,7 +441,6 @@ void initMainFunction() {
     decision_buffer = "";
     initScopeless();
     initMainContext();
-    initKaosApi();
 }
 
 void initScopeless() {

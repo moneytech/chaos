@@ -1,40 +1,41 @@
 #include "extension.h"
+#include "../Chaos.h"
 
-void initKaosApi() {
-    kaos.defineFunction = defineFunction;
-    kaos.getVariableBool = getVariableBool;
-    kaos.getVariableInt = getVariableInt;
-    kaos.getVariableFloat = getVariableFloat;
-    kaos.getVariableString = getVariableString;
-    kaos.getListLength = getListLength;
-    kaos.getListElementBool = getListElementBool;
-    kaos.getListElementInt = getListElementInt;
-    kaos.getListElementFloat = getListElementFloat;
-    kaos.getListElementString = getListElementString;
-    kaos.copyListElement = copyListElement;
-    kaos.getListElementType = getListElementType;
-    kaos.getDictLength = getDictLength;
-    kaos.getDictKeyByIndex = getDictKeyByIndex;
-    kaos.getDictElementBool = getDictElementBool;
-    kaos.getDictElementInt = getDictElementInt;
-    kaos.getDictElementFloat = getDictElementFloat;
-    kaos.getDictElementString = getDictElementString;
-    kaos.copyDictElement = copyDictElement;
-    kaos.getDictElementType = getDictElementType;
-    kaos.returnVariableBool = returnVariableBool;
-    kaos.returnVariableInt = returnVariableInt;
-    kaos.returnVariableFloat = returnVariableFloat;
-    kaos.returnVariableString = returnVariableString;
-    kaos.createVariableBool = createVariableBool;
-    kaos.createVariableInt = createVariableInt;
-    kaos.createVariableFloat = createVariableFloat;
-    kaos.createVariableString = createVariableString;
-    kaos.startBuildingList = startBuildingList;
-    kaos.returnList = returnList;
-    kaos.startBuildingDict = startBuildingDict;
-    kaos.returnDict = returnDict;
-    kaos.returnComplex = returnComplex;
-}
+struct Kaos kaos = {
+    .defineFunction = defineFunction,
+    .getVariableBool = getVariableBool,
+    .getVariableInt = getVariableInt,
+    .getVariableFloat = getVariableFloat,
+    .getVariableString = getVariableString,
+    .getListLength = getListLength,
+    .getListElementBool = getListElementBool,
+    .getListElementInt = getListElementInt,
+    .getListElementFloat = getListElementFloat,
+    .getListElementString = getListElementString,
+    .copyListElement = copyListElement,
+    .getListElementType = getListElementType,
+    .getDictLength = getDictLength,
+    .getDictKeyByIndex = getDictKeyByIndex,
+    .getDictElementBool = getDictElementBool,
+    .getDictElementInt = getDictElementInt,
+    .getDictElementFloat = getDictElementFloat,
+    .getDictElementString = getDictElementString,
+    .copyDictElement = copyDictElement,
+    .getDictElementType = getDictElementType,
+    .returnVariableBool = returnVariableBool,
+    .returnVariableInt = returnVariableInt,
+    .returnVariableFloat = returnVariableFloat,
+    .returnVariableString = returnVariableString,
+    .createVariableBool = createVariableBool,
+    .createVariableInt = createVariableInt,
+    .createVariableFloat = createVariableFloat,
+    .createVariableString = createVariableString,
+    .startBuildingList = startBuildingList,
+    .returnList = returnList,
+    .startBuildingDict = startBuildingDict,
+    .returnDict = returnDict,
+    .returnComplex = returnComplex
+};
 
 void callRegisterInDynamicLibrary(char* dynamic_library_path) {
     dynamic_library dylib = getFunctionFromDynamicLibrary(dynamic_library_path, __KAOS_EXTENSION_REGISTER_FUNCTION__);

@@ -5,6 +5,11 @@
 #include "../symbol.h"
 #include "../utilities/injector.h"
 
+Loop* loop_mode = NULL;
+bool loop_execution_mode = false;
+
+jmp_buf InteractiveShellLoopErrorAbsorber;
+int setjmp(jmp_buf InteractiveShellLoopErrorAbsorber);
 bool interactive_shell_loop_error_absorbed = false;
 extern int yyparse();
 

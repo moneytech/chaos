@@ -18,8 +18,18 @@ char *value_type_names[] = {
     "Void"
 };
 
+Symbol* symbol_cursor = NULL;
+Symbol* start_symbol = NULL;
+Symbol* end_symbol = NULL;
 unsigned long long symbol_id_counter = 0;
+
+symbol_array complex_mode_stack = { .arr = NULL, .child_counter = NULL, .capacity = 0, .size = 0 };
+symbol_array nested_complex_mode_stack = { .arr = NULL, .child_counter = NULL, .capacity = 0, .size = 0 };
 bool disable_complex_mode = false;
+
+symbol_id_array left_right_bracket_stack = { .arr = NULL, .capacity = 0, .size = 0 };
+Symbol* variable_complex_element = NULL;
+unsigned long long variable_complex_element_symbol_id = 0;
 
 Symbol* addSymbol(char *name, enum Type type, union Value value, enum ValueType value_type) {
     symbol_cursor = start_symbol;

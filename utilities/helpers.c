@@ -1,5 +1,7 @@
 #include "helpers.h"
 
+string_array free_string_stack = { .arr = NULL, .capacity = 0, .size = 0 };
+
 char *longlong_to_string(long long value, char *result, unsigned short base) {
     if (base < 2 || base > 36) { *result = '\0'; return result; }
 

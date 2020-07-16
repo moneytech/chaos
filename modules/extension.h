@@ -30,7 +30,6 @@ typedef struct dynamic_library {
     lib_func  func;
 } dynamic_library;
 
-void initKaosApi();
 void callRegisterInDynamicLibrary(char* dynamic_library_path);
 void callFunctionFromDynamicLibrary(_Function* function);
 dynamic_library getFunctionFromDynamicLibrary(char* dynamic_library_path, char* function_name);

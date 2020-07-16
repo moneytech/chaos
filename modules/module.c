@@ -1,5 +1,10 @@
 #include "module.h"
 
+string_array modules_buffer = { .arr = NULL, .capacity = 0, .size = 0 };
+
+string_array module_path_stack = { .arr = NULL, .capacity = 0, .size = 0 };
+string_array module_stack = { .arr = NULL, .capacity = 0, .size = 0 };
+
 void initMainContext() {
     modules_buffer.capacity = 0;
     modules_buffer.size = 0;

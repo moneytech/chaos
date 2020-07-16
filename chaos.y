@@ -40,6 +40,7 @@ bool is_interactive = true;
 bool inject_mode = false;
 
 jmp_buf InteractiveShellErrorAbsorber;
+int setjmp(jmp_buf InteractiveShellErrorAbsorber);
 
 FILE *fp;
 bool fp_opened;

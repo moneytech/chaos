@@ -14,7 +14,7 @@ typedef struct string_array {
     unsigned capacity, size;
 } string_array;
 
-string_array free_string_stack;
+extern string_array free_string_stack;
 
 #include "loop.h"
 #include "function.h"

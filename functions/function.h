@@ -38,36 +38,30 @@ typedef struct _Function {
     char *body;
 } _Function;
 
-_Function* function_cursor;
-_Function* start_function;
-_Function* end_function;
+extern _Function* function_cursor;
+extern _Function* start_function;
+extern _Function* end_function;
+extern _Function* function_mode;
+extern _Function* function_parameters_mode;
+extern _Function* executed_function;
+extern _Function* main_function;
+extern _Function* scopeless;
+extern _Function* scope_override;
+extern _Function* decision_mode;
+extern _Function* decision_expression_mode;
+extern _Function* decision_function_mode;
 
-_Function* function_mode;
+extern bool decision_execution_mode;
+extern Symbol* decision_symbol_chain;
+extern char *decision_buffer;
 
-_Function* function_parameters_mode;
+extern string_array function_names_buffer;
 
-_Function* executed_function;
+extern unsigned short recursion_depth;
+extern int reset_line_no_to;
 
-_Function* main_function;
-_Function* scopeless;
-
-_Function* scope_override;
-
-_Function* decision_mode;
-_Function* decision_expression_mode;
-_Function* decision_function_mode;
-bool decision_execution_mode;
-Symbol* decision_symbol_chain;
-char *decision_buffer;
-
-string_array function_names_buffer;
-
-unsigned short recursion_depth;
-
-int reset_line_no_to;
-
-jmp_buf InteractiveShellFunctionErrorAbsorber;
-bool interactive_shell_function_error_absorbed;
+extern jmp_buf InteractiveShellFunctionErrorAbsorber;
+extern bool interactive_shell_function_error_absorbed;
 
 void startFunction(char *name, enum Type type);
 void endFunction();

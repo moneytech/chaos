@@ -17,7 +17,7 @@ void yyrestart_interactive();
 void flushLexer();
 void parseTheModuleContent(char *module_path);
 
-char *last_token;
+extern char *last_token;
 
 void recordToken(char *token, int length);
 bool isStreamOpen();

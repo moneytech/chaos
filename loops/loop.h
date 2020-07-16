@@ -24,11 +24,11 @@ typedef struct {
     char *body;
 } Loop;
 
-Loop* loop_mode;
-bool loop_execution_mode;
+extern Loop* loop_mode;
+extern bool loop_execution_mode;
 
-jmp_buf InteractiveShellLoopErrorAbsorber;
-bool interactive_shell_loop_error_absorbed;
+extern jmp_buf InteractiveShellLoopErrorAbsorber;
+extern bool interactive_shell_loop_error_absorbed;
 
 void endLoop();
 

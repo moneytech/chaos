@@ -9,13 +9,13 @@
 #include "../utilities/helpers.h"
 #include "extension.h"
 
-string_array modules_buffer;
+extern string_array modules_buffer;
 
 extern char *program_file_path;
 extern char *program_file_dir;
 extern char *program_code;
-string_array module_path_stack;
-string_array module_stack;
+extern string_array module_path_stack;
+extern string_array module_stack;
 
 extern unsigned short module_parsing;
 

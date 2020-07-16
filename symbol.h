@@ -40,10 +40,10 @@ typedef struct Symbol {
     struct _Function* param_of;
 } Symbol;
 
-Symbol* symbol_cursor;
-Symbol* start_symbol;
-Symbol* end_symbol;
-unsigned long long symbol_id_counter;
+extern Symbol* symbol_cursor;
+extern Symbol* start_symbol;
+extern Symbol* end_symbol;
+extern unsigned long long symbol_id_counter;
 
 typedef struct symbol_array {
     Symbol** arr;
@@ -51,18 +51,18 @@ typedef struct symbol_array {
     unsigned capacity, size;
 } symbol_array;
 
-symbol_array complex_mode_stack;
-symbol_array nested_complex_mode_stack;
-bool disable_complex_mode;
+extern symbol_array complex_mode_stack;
+extern symbol_array nested_complex_mode_stack;
+extern bool disable_complex_mode;
 
 typedef struct symbol_id_array {
     unsigned long long* arr;
     unsigned capacity, size;
 } symbol_id_array;
 
-symbol_id_array left_right_bracket_stack;
-Symbol* variable_complex_element;
-unsigned long long variable_complex_element_symbol_id;
+extern symbol_id_array left_right_bracket_stack;
+extern Symbol* variable_complex_element;
+extern unsigned long long variable_complex_element_symbol_id;
 
 Symbol* addSymbol(char *name, enum Type type, union Value value, enum ValueType value_type);
 Symbol* updateSymbol(char *name, enum Type type, union Value value, enum ValueType value_type);

@@ -1,5 +1,7 @@
 #include "errors.h"
 
+int InteractiveShellErrorAbsorber_ws_col = 0;
+
 extern int yylineno;
 extern char *last_token;
 

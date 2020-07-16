@@ -1,5 +1,7 @@
 #include "injector.h"
 
+char *last_token = NULL;
+
 void recordToken(char *token, int length) {
     if (strcmp(token, " ") != 0) {
         last_token = (char *) realloc(last_token, strlen(token) + 1);
