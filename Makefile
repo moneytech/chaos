@@ -16,6 +16,7 @@ requirements-dev:
 	cp utilities/language.h /usr/local/include/chaos/
 	cp utilities/platform.h /usr/local/include/chaos/
 	cp enums.h /usr/local/include/chaos/
+	cp modules/definitions.c /usr/local/include/chaos/
 	cp Chaos.h /usr/local/include/
 ifeq ($(UNAME_S), Darwin)
 	echo 'export C_INCLUDE_PATH="/usr/local/include"' >> ~/.bash_profile
@@ -88,7 +89,7 @@ test-no-shell:
 	./tests/run.sh --no-shell
 
 test-extensions-linux-gcc:
-	gcc -shared -fPIC tests/extensions/spells/example/example.c -o tests/extensions/spells/example/example.so
+	gcc -shared -fPIC tests/extensions/spells/example/example.c /usr/local/include/chaos/definitions.c -o tests/extensions/spells/example/example.so
 	chaos tests/extensions/test.kaos
 	valgrind --tool=memcheck --leak-check=full --show-reachable=yes --num-callers=20 --track-fds=yes --track-origins=yes --error-exitcode=1 chaos tests/extensions/test.kaos || exit 1
 

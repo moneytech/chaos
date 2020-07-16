@@ -81,7 +81,7 @@ struct Kaos {
     void (*returnComplex)(enum Type type);
 };
 
-struct Kaos kaos;
+extern struct Kaos kaos;
 
 #if defined(_WIN32) || defined(_WIN64) || defined(__CYGWIN__)
 #define KAOS_EXPORT __declspec(dllexport)
